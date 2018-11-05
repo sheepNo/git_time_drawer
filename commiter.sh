@@ -1,15 +1,5 @@
 #!/bin/bash
 
-# img=( 0 0 4 0 0 0 0
-#       0 0 0 4 4 0 0
-#       0 4 4 3 3 4 0
-#       4 3 3 3 3 3 4
-#       4 2 2 0 2 4 0
-#       4 2 2 2 1 4 0
-#       4 2 2 2 1 2 4
-#       0 4 2 0 2 4 0
-#       0 0 4 4 4 0 0 )
-
 echo "Make sure you've created a new project on GitHub first."
 
 read -p "username " username
@@ -24,13 +14,8 @@ read -p 'starting epoch (e.g. date --date "20180506 0042" +%s)' epoch
 echo "Moving to $project/..."
 cd $project
 
-# echo "Saying hi..."
-# touch hi.txt
-# git add hi.txt
-
 echo "Creating dummy commits..."
 # skips the first lines of the pgm file
-# for i in "${img[@]}"; do
 convert ../img.pgm -compress None -transpose ../t_img.pgm
 tail -n +5 ../t_img.pgm | while read line; do
     echo $line
